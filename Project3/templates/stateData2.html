@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bare - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">Covid-19</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/map">Cases across the US</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Incidentrate">Incident Rate in California</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/StatesData">States Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stateData2">Details by State</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Form">Form</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Page Content -->
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6 text-center">
+        <div class="well">
+          <br>
+          <h4>States Covid-19 Breakout:</h4>
+          <h6><select id="selDataset" onchange="optionChanged(this.value)"></select></h6>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"></h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubbleConfirmed"></div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubbleDeath"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="/static/static/vendor/jquery/jquery.slim.min.js"></script>
+  <script src="/static/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="/static/covid2.js"></script>
+
+</body>
+
+</html>
