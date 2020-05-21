@@ -10,12 +10,18 @@
 
   <title>Coronavirus Disease 2019 (COVID-19)</title>
   <!-- Bootstrap core CSS -->
-  <link href="/static/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/style.css" rel="stylesheet">
+  <!-- <link href="/static/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- <link href="/static/style.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://zappa-hxh4j3i7m.s3.amazonaws.com/static/static/static/css/style.css" />
+
   <script>
-    var result = ['{{ result }}'];
+    var result = ["{{ result['Scored Labels'] }}"];
+    var Probabilities = ["{{ result['Scored Probabilities'] }}"];
+    Probabilities = Probabilities*100
     if (result != ""){
-      alert('Your Test Result: ' + result)
+      alert('You have '+ Probabilities +'% get test result : ' + result)
     }
   </script>
 </head>
@@ -25,31 +31,31 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="/">Covid-19</a>
+      <a class="navbar-brand" href="/dev">Covid-19</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/">Home
+            <a class="nav-link" href="/dev">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/map">Cases across the US</a>
+            <a class="nav-link" href="/dev/map">Cases across the US</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Incidentrate">Incident Rate in California</a>
+            <a class="nav-link" href="/dev/Incidentrate">Incident Rate in California</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/dev/StatesData">States Data</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/dev/stateData2">Details by State</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/StatesData">States Data</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/stateData2">Details by State</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Form">Form</a>
+            <a class="nav-link active" href="/dev/Form">Form</a>
           </li>
         </ul>
       </div>
@@ -60,7 +66,7 @@
   <div class="container">
     <div class="row">
     <div class="col-lg-6">
-      <img id="myimage" src="/static/static/img/dataModel.png" style="object-fit: fill;width: 68%;">
+      <img id="myimage" src="https://zappa-hxh4j3i7m.s3.amazonaws.com/static/static/img/dataModel.png" style="object-fit: fill;width: 68%;">
     </div>
     <div class="col-lg-6">
       
@@ -75,7 +81,7 @@
  <div class="container" style="padding-top: 7%;"> 
 
     <p>Try to see your test result here!</p>
-    <form method="POST" action="/Test" style="outline: lavender dotted; padding-left: 2%;">
+    <form method="POST" action="/dev/Test" style="outline: lavender dotted; padding-left: 2%;">
       <div class="form-row">
         <div class="form-group col-md-3">
           <p>Personal Info(Optional)</p>
@@ -97,10 +103,10 @@
         <div class="form-group col-md-5">
 
         <label for="temperature">Temperature</label>
-          <input type="text" class="form-control" name="temperature" placeholder="temperature(F)" required>
+          <input type="text" class="form-control" name="temperature" placeholder="temperature(C)" required>
 
-          <label for="sats">Oxygen saturation(sats)</label>
-          <input type="text" class="form-control" name="sats" placeholder="Oxygen saturation(sats)" required>
+          <!-- <label for="sats">Oxygen saturation(sats)</label>
+          <input type="text" class="form-control" name="sats" placeholder="Oxygen saturation(sats)" required> -->
 
 
           <p>Check symptoms that apply</p>
@@ -137,8 +143,9 @@
 
     <!-- style="display:none;" -->
   <!-- Bootstrap core JavaScript -->
-  <script src="/static/static/vendor/jquery/jquery.slim.min.js"></script>
-  <script src="/static/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- JS -->
     <!-- <script type="text/javascript" src="static/js/just-crime.js"></script> -->
   <!-- <script type="text/javascript" src="/static/static/static/js/form.js"></script> -->

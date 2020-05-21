@@ -1,5 +1,5 @@
 console.log("Chart.js")
-d3.csv("/static/COVID19_Cases_US.csv").then(function(Covid) {
+d3.csv("https://zappa-hxh4j3i7m.s3.amazonaws.com/static/COVID19_Cases_US.csv").then(function(Covid) {
     // Cast the hours value to a number for each piece of tvData
     Covid.forEach(function(data) {
         data.Deaths = +data.Deaths;
